@@ -5,25 +5,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kluczowy Odbiór</title>
-  <link rel="icon" href="favicon.ico">
+  <meta name="description" content="Zdalny nadzór budowlany i konsultacje techniczne. Skorzystaj z usług doświadczonego kierownika budowy i inspektora nadzoru.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
   <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
-    .container { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    body { font-family: sans-serif; padding: 2rem; margin: 0; background: #f4f4f4; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
     form { display: grid; gap: 1rem; }
-    input, textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    input, textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; box-sizing: border-box; }
     button { background: #333; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; }
     button:hover { background: #555; }
+    header { display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    header img { max-height: 40px; }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .container { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <header>
+      <img src="logo.svg" alt="Kluczowy Odbiór Logo" />
+    </header>
     <h1>Skontaktuj się z nami</h1>
     <form action="https://formspree.io/f/xldbndpy" method="POST">
       <input type="text" name="name" placeholder="Imię i nazwisko" required>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="tel" name="phone" placeholder="Telefon">
       <textarea name="message" rows="5" placeholder="Wiadomość" required></textarea>
-      <input type="hidden" name="_redirect" value="https://kluczowy-odbior.vercel.app/dziekujemy.html">
+      <input type="hidden" name="_redirect" value="dziekujemy.html">
       <button type="submit">Wyślij</button>
     </form>
   </div>
