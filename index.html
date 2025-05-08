@@ -4,59 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Zdalny nadzór budowlany, profesjonalne konsultacje techniczne - Kluczowy Odbiór"/>
-  <link rel="icon" href="favicon.ico" />
-  <title>Kluczowy Odbiór - Zdalny nadzór budowlany</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Kluczowy Odbiór</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    form { display: grid; gap: 1rem; }
+    input, textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #333; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #555; }
+  </style>
 </head>
-<body class="bg-gray-50 font-sans">
-
-  <header class="text-center py-10 bg-white shadow">
-    <img src="logo.svg" alt="Kluczowy Odbiór Logo" class="mx-auto h-20 mb-4" />
-    <h1 class="text-4xl font-bold text-gray-800">Kluczowy Odbiór</h1>
-    <p class="mt-2 text-gray-600">Zdalny nadzór budowlany i konsultacje techniczne online</p>
-  </header>
-
-  <main class="max-w-4xl mx-auto p-6">
-    <section class="grid md:grid-cols-2 gap-6 my-10">
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h2 class="text-2xl font-semibold mb-2">Zgłoś odbiór lub konsultację</h2>
-        <p class="text-gray-600 mb-4">Wypełnij krótki formularz i szybko umów termin.</p>
-        <a href="mailto:kontakt@kluczowyodbior.pl" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Wyślij zgłoszenie</a>
-      </div>
-
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h2 class="text-2xl font-semibold mb-2">Skontaktuj się z nami</h2>
-        <p class="text-gray-600 mb-4">Odpowiemy na wszystkie pytania techniczne.</p>
-        <div class="space-x-2">
-          <a href="https://wa.me/48123456789" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">WhatsApp</a>
-          <a href="https://m.me/kluczowyodbior" class="inline-block mt-2 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-900">Messenger</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="o-nas" class="my-20">
-      <h2 class="text-3xl font-bold mb-4">O nas</h2>
-      <p class="text-gray-700 leading-relaxed">
-        Jestem doświadczonym kierownikiem budowy i inspektorem nadzoru z wieloletnim stażem.
-        Specjalizuję się w kompleksowej ocenie stanu budynków oraz wsparciu inwestorów na każdym etapie budowy.
-        Oferuję profesjonalne zdalne odbiory oraz konsultacje techniczne.
-      </p>
-    </section>
-
-    <section id="kontakt" class="my-20">
-      <h2 class="text-3xl font-bold mb-4">Kontakt</h2>
-      <p class="text-gray-700 leading-relaxed">
-        kontakt@kluczowyodbior.pl<br/>
-        WhatsApp: +48 123 456 789<br/>
-        Messenger: m.me/kluczowyodbior
-      </p>
-    </section>
-  </main>
-
-  <footer class="text-center p-6 text-gray-500 text-sm">
-    &copy; 2025 Kluczowy Odbiór. Wszelkie prawa zastrzeżone.
-  </footer>
-
+<body>
+  <div class="container">
+    <h1>Skontaktuj się z nami</h1>
+    <form action="https://formspree.io/f/xldbndpy" method="POST">
+      <input type="text" name="name" placeholder="Imię i nazwisko" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="tel" name="phone" placeholder="Telefon">
+      <textarea name="message" rows="5" placeholder="Wiadomość" required></textarea>
+      <input type="hidden" name="_redirect" value="https://kluczowy-odbior.vercel.app/dziekujemy.html">
+      <button type="submit">Wyślij</button>
+    </form>
+  </div>
 </body>
 </html>
