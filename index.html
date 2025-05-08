@@ -1,41 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kluczowy Odbiór</title>
-  <meta name="description" content="Zdalny nadzór budowlany i konsultacje techniczne. Skorzystaj z usług doświadczonego kierownika budowy i inspektora nadzoru.">
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
-  <style>
-    body { font-family: sans-serif; padding: 2rem; margin: 0; background: #f4f4f4; }
-    .container { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    form { display: grid; gap: 1rem; }
-    input, textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; box-sizing: border-box; }
-    button { background: #333; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #555; }
-    header { display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-    header img { max-height: 40px; }
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .container { padding: 1rem; }
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <img src="logo.svg" alt="Kluczowy Odbiór Logo" />
-    </header>
-    <h1>Skontaktuj się z nami</h1>
-    <form action="https://formspree.io/f/xldbndpy" method="POST">
-      <input type="text" name="name" placeholder="Imię i nazwisko" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="tel" name="phone" placeholder="Telefon">
-      <textarea name="message" rows="5" placeholder="Wiadomość" required></textarea>
-      <input type="hidden" name="_redirect" value="dziekujemy.html">
-      <button type="submit">Wyślij</button>
-    </form>
-  </div>
+<body class="bg-white text-gray-800 font-sans">
+  <header class="bg-blue-600 text-white p-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Kluczowy Odbiór</h1>
+      <a href="#kontakt" class="bg-white text-blue-600 font-medium px-4 py-2 rounded-xl shadow hover:bg-blue-100">Kontakt</a>
+    </div>
+  </header>
+
+  <section class="bg-gray-50 py-20 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-4">Zdalny nadzór budowlany i techniczne konsultacje</h2>
+      <p class="text-lg text-gray-600 mb-6">Bezpiecznie. Skutecznie. Bez wychodzenia z domu.</p>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 py-16">
+    <h3 class="text-3xl font-semibold text-center mb-10">Nasze Usługi</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <h4 class="text-xl font-bold mb-2">Zdalny odbiór techniczny mieszkań</h4>
+        <p class="text-gray-600">Analiza zdjęć i dokumentacji, wideorozmowa z klientem, raport PDF.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <h4 class="text-xl font-bold mb-2">Wideokonsultacje techniczne</h4>
+        <p class="text-gray-600">Doradztwo inżynierskie, wsparcie na każdym etapie budowy lub remontu.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <h4 class="text-xl font-bold mb-2">Opinia ekspercka</h4>
+        <p class="text-gray-600">Wycena usterek, dokumentacja dla dewelopera lub wykonawcy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue-50 py-16">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Opinie Klientów</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <p class="italic">„Pełen profesjonalizm. Dzięki wideokonsultacji uniknęliśmy kosztownej poprawki!”</p>
+          <p class="mt-2 text-sm text-gray-600">— Anna, Kraków</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <p class="italic">„Świetny kontakt, szybka analiza zdjęć z odbioru. Polecam!”</p>
+          <p class="mt-2 text-sm text-gray-600">— Piotr, Warszawa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 py-16">
+    <h3 class="text-3xl font-semibold text-center mb-10">Najczęstsze pytania (FAQ)</h3>
+    <div class="space-y-6 max-w-2xl mx-auto">
+      <div>
+        <h4 class="font-bold">Jak wygląda zdalny odbiór techniczny?</h4>
+        <p class="text-gray-600">Po przesłaniu zdjęć umawiamy się na wideorozmowę i przekazujemy raport PDF.</p>
+      </div>
+      <div>
+        <h4 class="font-bold">Czy muszę być obecny/a na miejscu?</h4>
+        <p class="text-gray-600">Nie, cały proces może odbyć się zdalnie – potrzebujemy jedynie dokumentacji i zdjęć.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4 max-w-xl">
+      <h3 class="text-3xl font-semibold text-center mb-8">Skontaktuj się z nami</h3>
+      <form action="https://formspree.io/f/xldbndpy" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Imię i nazwisko" class="w-full p-3 rounded border" required>
+        <input type="email" name="email" placeholder="Adres e-mail" class="w-full p-3 rounded border" required>
+        <textarea name="message" rows="5" placeholder="Wiadomość" class="w-full p-3 rounded border" required></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700">Wyślij</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-blue-600 text-white text-center p-4">
+    <p>© 2025 Kluczowy Odbiór. kontakt@example.com</p>
+  </footer>
+
+  <a href="mailto:kontakt@example.com" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-xl hover:bg-blue-700">✉️</a>
 </body>
 </html>
