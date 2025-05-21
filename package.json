@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.0",
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.281.0",
