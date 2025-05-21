@@ -5,6 +5,8 @@ import { ReactNode, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Mail, Phone, ChevronUp, Hammer, ShieldCheck, Clock3, ClipboardList, Star, Sun, Moon } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     const darkMode = localStorage.getItem("dark") === "true";
     setDark(darkMode);
     document.documentElement.classList.toggle("dark", darkMode);
+    AOS.init({ once: true });
   }, []);
 
   const toggleTheme = () => {
@@ -78,73 +81,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="max-w-5xl mx-auto px-4 py-8 space-y-16">
           {children}
 
-          {/* Galeria */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl font-bold mb-6 text-center">Nasze realizacje</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1,2,3,4,5,6].map(i => (
-                <img key={i} src={`/gallery/${i}.jpg`} alt="Galeria" className="rounded-xl object-cover w-full h-48" />
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Etapy współpracy */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl font-bold mb-6 text-center">Etapy współpracy</h2>
-            <ol className="relative border-s border-gray-300 dark:border-gray-600 ml-4 space-y-10">
-              {[
-                "Zgłoszenie potrzeby klienta",
-                "Analiza dokumentacji i wstępna konsultacja",
-                "Uzgodnienie terminu odbioru lub wizyty",
-                "Przeprowadzenie odbioru / konsultacji",
-                "Raport / zalecenia końcowe i podsumowanie"
-              ].map((etap, i) => (
-                <li key={i} className="ms-6">
-                  <span className="absolute -start-3 flex items-center justify-center w-6 h-6 bg-beige-dark rounded-full ring-2 ring-white dark:ring-neutral-900">
-                    {i + 1}
-                  </span>
-                  <h3 className="font-medium leading-tight mb-1">{etap}</h3>
-                </li>
-              ))}
-            </ol>
-          </motion.section>
-
-          {/* Opinie klientów */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl font-bold mb-6 text-center">Opinie klientów</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { name: "Anna K.", text: "Profesjonalna obsługa i szybki kontakt. Polecam każdemu!" },
-                { name: "Marcin P.", text: "Rzetelność i ogromne doświadczenie. Dziękuję za pomoc!" },
-                { name: "Ewelina D.", text: "Dokładność podczas odbioru mieszkania zrobiła na mnie wrażenie." }
-              ].map(({ name, text }, i) => (
-                <div key={i} className="bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-md">
-                  <div className="flex items-center gap-4 mb-4">
-                    <img src={`/avatars/${i+1}.jpg`} alt={name} className="w-10 h-10 rounded-full object-cover" />
-                    <div>
-                      <h4 className="font-semibold">{name}</h4>
-                      <div className="flex gap-1 text-yellow-500">
-                        {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" fill="currentColor" />)}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300">{text}</p>
-                </div>
-              ))}
-            </div>
-          </motion.section>
+          {/* Formularz kontaktowy */}
+          <section data-aos="fade-up" className="max-w-xl mx-auto bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-md">
+            <h2 className="text-2xl font-bold mb-4 text-center">Skontaktuj się z nami</h2>
+            <form action="https://formspree.io/f/xzbnzkeq" method="POST" className="space-y-4">
+              <input name="name" type="text" required placeholder="Imię i nazwisko" className="w-full px-4 py-2 rounded-lg border" />
+              <input name="email" type="email" required placeholder="Email" className="w-full px-4 py-2 rounded-lg border" />
+              <textarea name="message" rows={4} required placeholder="Wiadomość" className="w-full px-4 py-2 rounded-lg border" />
+              <button type="submit" className="w-full bg-beige-dark hover:bg-beige py-2 rounded-lg font-semibold">Wyślij</button>
+            </form>
+          </section>
         </main>
 
         {showScroll && (
