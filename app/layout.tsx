@@ -4,7 +4,7 @@ import "../styles/globals.css";
 import { ReactNode, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X, Mail, Phone, ChevronUp, Hammer, ShieldCheck, Clock3, ClipboardList, Star, Sun, Moon } from "lucide-react";
+import { Menu, X, Mail, Phone, ChevronUp, Facebook, Instagram, Youtube, Sun, Moon } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -103,9 +103,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
 
         <footer className="bg-beige-dark text-sm text-center py-6 mt-12 border-t">
-          <div className="flex justify-center items-center gap-4 mb-2">
-            <Mail className="w-4 h-4" /> <span>tomaszbiber@o2.pl</span>
-            <Phone className="w-4 h-4" /> <span>+48 123 456 789</span>
+          <div className="flex justify-center items-center gap-6 mb-2">
+            <a href="mailto:tomaszbiber@o2.pl" target="_blank" rel="noopener" className="flex items-center gap-1"><Mail className="w-4 h-4" /> Email</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" className="flex items-center gap-1"><Facebook className="w-4 h-4" /> Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" className="flex items-center gap-1"><Instagram className="w-4 h-4" /> Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" className="flex items-center gap-1"><Youtube className="w-4 h-4" /> TikTok</a>
           </div>
           <p>&copy; {new Date().getFullYear()} Kluczowy Odbiór. Wszystkie prawa zastrzeżone.</p>
         </footer>
