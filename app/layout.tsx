@@ -17,7 +17,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     const darkMode = localStorage.getItem("dark") === "true";
     setDark(darkMode);
     document.documentElement.classList.toggle("dark", darkMode);
-    AOS.init({ once: true });
+     AOS.init({
+    duration: 800,
+    once: true, });
   }, []);
 
   const toggleTheme = () => {
