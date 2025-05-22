@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-
+import Gallery from './components/Gallery';
+import Testimonials from './components/Testimonials';
+import Steps from './components/Steps';
+import ScrollTop from './components/ScrollTop';
 export default function Home() {
   return (
     <motion.section
@@ -9,6 +12,17 @@ export default function Home() {
       transition={{ duration: 0.8 }}
       className="p-4"
     >
+export default function Home() {
+  return (
+    <>
+      {/* Inne sekcje */}
+      <Gallery />
+      <Steps />
+      <Testimonials />
+      <ScrollTop />
+    </>
+  );
+}
 <section
   className="py-16 px-6 text-center bg-[#fdf6f0] text-gray-800"
   data-aos="fade-up"
