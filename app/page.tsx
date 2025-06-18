@@ -1,43 +1,52 @@
 "use client";
+
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
-import Steps from './components/Steps';
-import ScrollTop from './components/ScrollTop';
+import Gallery from "./components/Gallery";
+import Testimonials from "./components/Testimonials";
+import Steps from "./components/Steps";
+import ScrollTop from "./components/ScrollTop";
+import ParallaxSection from "./components/ParallaxSection";
+
 export default function Home() {
-  return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="p-4"
-    >
-export default function Home() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("aos").then((AOS) => {
+        AOS.init({ once: true });
+      });
+    }
+  }, []);
+
   return (
     <>
-      {/* Inne sekcje */}
-      <Gallery />
-      <Steps />
-      <Testimonials />
-      <ScrollTop />
-    </>
-  );
-}
-<section
-  className="py-16 px-6 text-center bg-[#fdf6f0] text-gray-800"
-  data-aos="fade-up"
-  data-aos-delay="100"
->
-  <h2 className="text-3xl font-bold mb-4">Dlaczego warto nas wybrać?</h2>
-  <p className="max-w-xl mx-auto text-lg">
-    Jesteśmy zespołem doświadczonych specjalistów z wieloletnim doświadczeniem w nadzorze budowlanym.
-  </p>
-</section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="p-4 bg-gradient-to-r from-[#fdf6f0] to-[#fefbf8]"
+      >
+        <h1 className="text-3xl font-bold mb-6 tracking-tight">
+          Profesjonalny nadzór budowlany
+        </h1>
+        <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
+          Kluczowy Odbiór to Twój partner w odbiorach technicznych mieszkań,
+          nadzorze budowlanym oraz profesjonalnych konsultacjach.
+        </p>
+      </motion.section>
 
-      <h1 className="text-3xl font-bold mb-6">Profesjonalny nadzór budowlany</h1>
-      <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
-        Kluczowy Odbiór to Twój partner w odbiorach technicznych mieszkań, nadzorze budowlanym oraz profesjonalnych konsultacjach.
-      </p>
+      <section
+        className="py-16 px-6 text-center bg-[#fdf6f0] text-gray-800"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <h2 className="text-3xl font-bold mb-4">Dlaczego warto nas wybrać?</h2>
+        <p className="max-w-xl mx-auto text-lg">
+          Jesteśmy zespołem doświadczonych specjalistów z wieloletnim
+          doświadczeniem w nadzorze budowlanym.
+        </p>
+      </section>
+
+      <ParallaxSection />
 
       <motion.section
         initial={{ opacity: 0, y: 50 }}
@@ -52,6 +61,11 @@ export default function Home() {
           <p>“Zdecydowanie warto! Fachowe wsparcie na każdym etapie.” – Karolina Z.</p>
         </div>
       </motion.section>
-    </motion.section>
+
+      <Gallery />
+      <Steps />
+      <Testimonials />
+      <ScrollTop />
+    </>
   );
 }
