@@ -21,6 +21,3 @@ export default function ScrollTop() {
     </button>
   ) : null;
 }
-```
-
----

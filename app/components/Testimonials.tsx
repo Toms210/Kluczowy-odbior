@@ -1,4 +1,3 @@
-
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,16 +5,16 @@ import 'swiper/css';
 const testimonials = [
   {
     name: 'Jan Kowalski',
-    text: 'Bardzo profesjonalna obsługa, wszystko terminowo i zgodnie z umową!'
+    text: 'Bardzo profesjonalna obsługa, wszystko terminowo i zgodnie z umową!',
   },
   {
     name: 'Anna Nowak',
-    text: 'Super kontakt, świetne doradztwo. Polecam każdemu inwestorowi.'
+    text: 'Super kontakt, świetne doradztwo. Polecam każdemu inwestorowi.',
   },
   {
     name: 'Michał Zieliński',
-    text: 'Rzetelność, punktualność i ogromna wiedza – to się ceni!'
-  }
+    text: 'Rzetelność, punktualność i ogromna wiedza – to się ceni!',
+  },
 ];
 
 export default function Testimonials() {
@@ -35,6 +34,3 @@ export default function Testimonials() {
     </section>
   );
 }
-```
-
----

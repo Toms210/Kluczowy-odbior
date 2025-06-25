@@ -1,4 +1,3 @@
-
 export default function Steps() {
   return (
     <section className="py-16 px-6 bg-[#fffaf5]">
@@ -31,4 +30,3 @@ export default function Steps() {
     </section>
   );
 }
-```
