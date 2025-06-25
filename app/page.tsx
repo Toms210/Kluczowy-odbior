@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import GradientCTA from './components/GradientCTA';
+import Features from './components/Features';
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import Steps from "./components/Steps";
