@@ -2,13 +2,13 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import GradientCTA from './components/GradientCTA';
-import Features from './components/Features';
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import Steps from "./components/Steps";
 import ScrollTop from "./components/ScrollTop";
-import ParallaxSection from "./components/ParallaxSection";
+import GradientCTA from "./components/GradientCTA";
+import ParallaxBackground from "./components/ParallaxBackground";
+import Features from "./components/Features";
 
 export default function Home() {
   useEffect(() => {
@@ -21,18 +21,17 @@ export default function Home() {
 
   return (
     <>
+      <ParallaxBackground />
+
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="p-4 bg-gradient-to-r from-[#fdf6f0] to-[#fefbf8]"
+        className="p-4"
       >
-        <h1 className="text-3xl font-bold mb-6 tracking-tight">
-          Profesjonalny nadzór budowlany
-        </h1>
+        <h1 className="text-3xl font-bold mb-6">Profesjonalny nadzór budowlany</h1>
         <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
-          Kluczowy Odbiór to Twój partner w odbiorach technicznych mieszkań,
-          nadzorze budowlanym oraz profesjonalnych konsultacjach.
+          Kluczowy Odbiór to Twój partner w odbiorach technicznych mieszkań, nadzorze budowlanym oraz profesjonalnych konsultacjach.
         </p>
       </motion.section>
 
@@ -43,12 +42,11 @@ export default function Home() {
       >
         <h2 className="text-3xl font-bold mb-4">Dlaczego warto nas wybrać?</h2>
         <p className="max-w-xl mx-auto text-lg">
-          Jesteśmy zespołem doświadczonych specjalistów z wieloletnim
-          doświadczeniem w nadzorze budowlanym.
+          Jesteśmy zespołem doświadczonych specjalistów z wieloletnim doświadczeniem w nadzorze budowlanym.
         </p>
       </section>
 
-      <ParallaxSection />
+      <Features />
 
       <motion.section
         initial={{ opacity: 0, y: 50 }}
@@ -63,11 +61,11 @@ export default function Home() {
           <p>“Zdecydowanie warto! Fachowe wsparcie na każdym etapie.” – Karolina Z.</p>
         </div>
       </motion.section>
-      <Features />
-      <GradientCTA />
+
       <Gallery />
       <Steps />
       <Testimonials />
+      <GradientCTA />
       <ScrollTop />
     </>
   );
