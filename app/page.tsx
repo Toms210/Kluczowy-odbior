@@ -63,7 +63,8 @@ export default function Home() {
           <p>“Zdecydowanie warto! Fachowe wsparcie na każdym etapie.” – Karolina Z.</p>
         </div>
       </motion.section>
-
+      <Features />
+      <GradientCTA />
       <Gallery />
       <Steps />
       <Testimonials />
