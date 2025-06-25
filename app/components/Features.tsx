@@ -1,4 +1,4 @@
-// app/components/Features.tsx
+
 import { ShieldCheck, Timer, Lightbulb } from 'lucide-react';
 
 const items = [
