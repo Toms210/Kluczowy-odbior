@@ -1,13 +1,15 @@
+
 'use client';
 
 import { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface ParallaxSectionProps {
   backgroundUrl?: string;
-  children: ReactNode;
+  height?: string;
+  children?: ReactNode;
 }
 
-export default function ParallaxSection({ children, backgroundUrl }: ParallaxSectionProps) {
+export default function ParallaxSection({ backgroundUrl, height = '60vh', children }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
 
@@ -25,20 +27,18 @@ export default function ParallaxSection({ children, backgroundUrl }: ParallaxSec
   return (
     <div
       ref={ref}
-      className="relative z-0 w-full overflow-hidden min-h-[300px]"
+      className="relative z-0 w-full overflow-hidden"
+      style={{
+        height,
+        backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        transform: `translateY(${offsetY}px)`
+      }}
     >
-      <div
-        style={{
-          transform: `translateY(${offsetY}px)`,
-          backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-        className="w-full h-full transition-transform duration-300 ease-out"
-      >
-        <div className="w-full h-full backdrop-brightness-90 flex items-center justify-center">
-          {children}
-        </div>
+      <div className="w-full h-full flex items-center justify-center bg-black/40 text-white text-3xl font-semibold">
+        {children}
       </div>
     </div>
   );
