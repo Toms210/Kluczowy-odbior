@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useRef, useState, ReactNode } from 'react';
@@ -26,16 +25,20 @@ export default function ParallaxSection({ children, backgroundUrl }: ParallaxSec
   return (
     <div
       ref={ref}
-      style={{
-        transform: `translateY(${offsetY}px)`,
-        backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
       className="relative z-0 w-full overflow-hidden min-h-[300px]"
     >
-      <div className="backdrop-brightness-90 w-full h-full">
-        {children}
+      <div
+        style={{
+          transform: `translateY(${offsetY}px)`,
+          backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+        className="w-full h-full transition-transform duration-300 ease-out"
+      >
+        <div className="w-full h-full backdrop-brightness-90 flex items-center justify-center">
+          {children}
+        </div>
       </div>
     </div>
   );
