@@ -1,9 +1,14 @@
 
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 
-export default function ParallaxSection({ children }: { children: React.ReactNode }) {
+interface ParallaxSectionProps {
+  backgroundUrl?: string;
+  children: ReactNode;
+}
+
+export default function ParallaxSection({ children, backgroundUrl }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
 
@@ -11,7 +16,7 @@ export default function ParallaxSection({ children }: { children: React.ReactNod
     const handleScroll = () => {
       if (ref.current) {
         const scrollTop = window.scrollY;
-        setOffsetY(scrollTop * 0.3); // Adjust speed of parallax
+        setOffsetY(scrollTop * 0.3);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -21,10 +26,17 @@ export default function ParallaxSection({ children }: { children: React.ReactNod
   return (
     <div
       ref={ref}
-      style={{ transform: `translateY(${offsetY}px)` }}
-      className="relative z-0 w-full overflow-hidden"
+      style={{
+        transform: `translateY(${offsetY}px)`,
+        backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className="relative z-0 w-full overflow-hidden min-h-[300px]"
     >
-      {children}
+      <div className="backdrop-brightness-90 w-full h-full">
+        {children}
+      </div>
     </div>
   );
 }
