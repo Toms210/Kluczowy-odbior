@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <ParallaxBackground />
+      <ParallaxBackground >
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -72,6 +72,7 @@ export default function Home() {
       <Testimonials />
       <GradientCTA />
       <ContactForm />
+      </ParallaxBackground>
       <ScrollTop />
     </>
   );
