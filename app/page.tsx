@@ -20,9 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <ParallaxBackground />
-
+    <ParallaxBackground>
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -67,6 +65,6 @@ export default function Home() {
       <Testimonials />
       <GradientCTA />
       <ScrollTop />
-    </>
+    </ParallaxBackground>
   );
 }
