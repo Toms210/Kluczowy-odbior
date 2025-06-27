@@ -23,20 +23,25 @@ export default function Home() {
   return (
     <>
       <ParallaxSection backgroundUrl="/images/parallax.jpg">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="p-8 text-center text-white drop-shadow-md"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="backdrop-brightness-75 backdrop-blur-sm w-full h-full flex flex-col items-center justify-center text-white text-center p-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
             Profesjonalny nadzór budowlany
-          </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-lg md:text-xl max-w-2xl"
+          >
             Kluczowy Odbiór to Twój partner w odbiorach technicznych mieszkań,
             nadzorze budowlanym oraz profesjonalnych konsultacjach.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
       </ParallaxSection>
 
       <section
@@ -52,6 +57,14 @@ export default function Home() {
       </section>
 
       <Features />
+
+      <ParallaxSection backgroundUrl="/images/parallax2.jpg">
+        <div className="backdrop-brightness-50 backdrop-blur-md w-full h-full flex items-center justify-center p-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
+            Jakość, doświadczenie, zaufanie
+          </h2>
+        </div>
+      </ParallaxSection>
 
       <motion.section
         initial={{ opacity: 0, y: 50 }}
