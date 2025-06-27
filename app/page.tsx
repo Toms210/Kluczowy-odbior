@@ -59,10 +59,15 @@ export default function Home() {
       <Features />
 
       <ParallaxSection backgroundUrl="/images/parallax2.jpg">
-        <div className="backdrop-brightness-50 backdrop-blur-md w-full h-full flex items-center justify-center p-10 min-h-[60vh]">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
+        <div className="backdrop-brightness-50 bg-gradient-to-t from-black/60 to-transparent w-full h-full flex items-center justify-center text-white text-center px-6 py-20 min-h-[80vh]">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl md:text-4xl font-bold"
+          >
             Jakość, doświadczenie, zaufanie
-          </h2>
+          </motion.h2>
         </div>
       </ParallaxSection>
 
