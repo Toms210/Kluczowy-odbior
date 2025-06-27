@@ -59,7 +59,7 @@ export default function Home() {
       <Features />
 
       <ParallaxSection backgroundUrl="/images/parallax2.jpg">
-        <div className="backdrop-brightness-60 bg-gradient-to-t from-black/70 to-transparent w-full h-full flex items-center justify-center text-white text-center px-6 py-24 min-h-[100vh]">
+        <div className="backdrop-brightness-60 bg-gradient-to-t from-black/70 to-transparent w-full h-full flex items-center justify-center text-white text-center px-6 py-24 min-h-[200vh]">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
