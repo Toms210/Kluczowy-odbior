@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <ParallaxSection backgroundUrl="/images/parallax.jpg">
-        <div className="backdrop-brightness-75 backdrop-blur-sm w-full h-full flex flex-col items-center justify-center text-white text-center p-8">
+        <div className="backdrop-brightness-75 backdrop-blur-sm w-full min-h-screen flex flex-col items-center justify-center text-white text-center p-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export default function Home() {
       <Features />
 
       <ParallaxSection backgroundUrl="/images/parallax2.jpg">
-        <div className="backdrop-brightness-50 backdrop-blur-md w-full h-full flex items-center justify-center p-10">
+        <div className="backdrop-brightness-60 backdrop-blur-md w-full min-h-[60vh] flex items-center justify-center p-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
             Jakość, doświadczenie, zaufanie
           </h2>
