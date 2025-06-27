@@ -2,12 +2,12 @@
 import "../styles/globals.css";
 import { ReactNode, useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
   Mail,
-  Phone,
   ChevronUp,
   Facebook,
   Instagram,
@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
   const [dark, setDark] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const darkMode = localStorage.getItem("dark") === "true";
@@ -45,6 +46,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const navLinks = [
+    { href: "/o-mnie", label: "O mnie" },
+    { href: "/oferta", label: "Oferta" },
+    { href: "/kontakt", label: "Kontakt" },
+    { href: "/faq", label: "FAQ" },
+  ];
+
   return (
     <html lang="pl">
       <body className="bg-beige-light text-gray-800 dark:bg-neutral-900 dark:text-white">
@@ -64,10 +72,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               {dark ? <Sun /> : <Moon />}
             </button>
             <nav className="hidden md:flex space-x-4 text-sm md:text-base">
-              <Link href="/o-mnie">O mnie</Link>
-              <Link href="/oferta">Oferta</Link>
-              <Link href="/kontakt">Kontakt</Link>
-              <Link href="/faq">FAQ</Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative transition duration-300 hover:text-black dark:hover:text-white ${
+                    pathname === link.href ? "font-bold" : ""
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {pathname === link.href && (
+                    <motion.span
+                      layoutId="underline"
+                      className="absolute bottom-0 left-0 w-full h-[2px] bg-black dark:bg-white"
+                    />
+                  )}
+                </Link>
+              ))}
             </nav>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden">
               {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -83,18 +104,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               exit={{ y: -20, opacity: 0 }}
               className="md:hidden flex flex-col items-center bg-beige shadow-md p-4 space-y-2 text-center"
             >
-              <Link href="/o-mnie" onClick={() => setMobileOpen(false)}>
-                O mnie
-              </Link>
-              <Link href="/oferta" onClick={() => setMobileOpen(false)}>
-                Oferta
-              </Link>
-              <Link href="/kontakt" onClick={() => setMobileOpen(false)}>
-                Kontakt
-              </Link>
-              <Link href="/faq" onClick={() => setMobileOpen(false)}>
-                FAQ
-              </Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+                  {link.label}
+                </Link>
+              ))}
             </motion.nav>
           )}
         </AnimatePresence>
@@ -102,7 +116,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="max-w-5xl mx-auto px-4 py-8 space-y-16">
           {children}
 
-          {/* Formularz kontaktowy */}
           <section
             data-aos="fade-up"
             className="max-w-xl mx-auto bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-md"
