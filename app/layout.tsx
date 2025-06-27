@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const [showScroll, setShowScroll] = useState(false);
   const [dark, setDark] = useState(false);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const darkMode = localStorage.getItem("dark") === "true";
@@ -39,7 +40,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    const handleScroll = () => setShowScroll(window.scrollY > 200);
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 200);
+      setScrolled(window.scrollY > 50);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -60,7 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="sticky top-0 z-50 bg-beige shadow-md px-6 py-4 flex justify-between items-center backdrop-blur-md backdrop-saturate-150 bg-opacity-90"
+          className={`sticky top-0 z-50 px-6 py-4 flex justify-between items-center backdrop-blur-md backdrop-saturate-150 transition-all duration-500 ${scrolled ? "bg-gradient-to-r from-[#fdf6f0] via-[#f1ece5] to-[#fdf6f0] shadow-lg" : "bg-beige bg-opacity-90"}`}
         >
           <Link href="/" className="text-xl font-bold flex items-center gap-2">
             <img src="/logo.svg" alt="Logo" className="h-8" />
@@ -76,9 +80,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative transition duration-300 hover:text-black dark:hover:text-white ${
-                    pathname === link.href ? "font-bold" : ""
-                  }`}
+                  className={`relative transition duration-300 hover:text-black dark:hover:text-white ${pathname === link.href ? "font-bold scale-105 shadow-md px-2 py-1 rounded-md bg-white dark:bg-neutral-700" : ""}`}
                 >
                   <span>{link.label}</span>
                   {pathname === link.href && (
