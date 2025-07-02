@@ -1,8 +1,8 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Mail } from 'lucide-react';
 
 export default function GradientCTA() {
   return (
@@ -11,9 +11,10 @@ export default function GradientCTA() {
         initial={{ scale: 0.95 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="inline-block px-8 py-4 bg-black text-white text-xl font-semibold rounded-full shadow-lg hover:scale-105 transition"
+        className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white text-xl font-semibold rounded-full shadow-lg hover:scale-105 transition"
       >
-        <Link href="#kontakt">Zamów odbiór</Link>
+        <Mail className="w-6 h-6" />
+        <Link href="/kontakt">Skontaktuj się z nami</Link>
       </motion.div>
     </section>
   );
