@@ -58,38 +58,16 @@ export default function Home() {
 
       <Features />
 
-      <ParallaxSection backgroundUrl="/images/parallax2.jpg">
-        <div className="backdrop-brightness-60 bg-gradient-to-t from-black/70 to-transparent w-full h-full flex items-center justify-center text-white text-center px-6 py-32 min-h-[70vh]">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-3xl md:text-4xl font-bold"
-          >
-            Jakość, doświadczenie, zaufanie
-          </motion.h2>
-        </div>
-      </ParallaxSection>
+      <Steps />
 
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="bg-beige-dark p-6 mt-12 rounded-xl shadow-md"
-      >
-        <h2 className="text-2xl font-semibold mb-4">Opinie klientów</h2>
-        <div className="space-y-4 text-sm md:text-base">
-          <p>“Świetny kontakt i profesjonalne podejście. Polecam!” – Anna K.</p>
-          <p>“Odbiór mieszkania przebiegł sprawnie i bez stresu.” – Michał P.</p>
-          <p>“Zdecydowanie warto! Fachowe wsparcie na każdym etapie.” – Karolina Z.</p>
-        </div>
-      </motion.section>
+      <Testimonials />
 
       <Gallery />
-      <Steps />
-      <Testimonials />
+
       <GradientCTA />
+
       <ContactForm />
+
       <ScrollTop />
     </>
   );
