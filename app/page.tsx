@@ -65,9 +65,6 @@ export default function Home() {
       <Gallery />
 
       <GradientCTA />
-
-      <ContactForm />
-
       <ScrollTop />
     </>
   );
