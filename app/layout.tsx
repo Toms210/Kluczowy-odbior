@@ -122,41 +122,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             data-aos="fade-up"
             className="max-w-xl mx-auto bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-md"
           >
-            <h2 className="text-2xl font-bold mb-4 text-center">Skontaktuj się z nami</h2>
-            <form
-              action="https://formspree.io/f/xzbnzkeq"
-              method="POST"
-              className="space-y-4"
-            >
-              <input
-                name="name"
-                type="text"
-                required
-                placeholder="Imię i nazwisko"
-                className="w-full px-4 py-2 rounded-lg border"
-              />
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="Email"
-                className="w-full px-4 py-2 rounded-lg border"
-              />
-              <textarea
-                name="message"
-                rows={4}
-                required
-                placeholder="Wiadomość"
-                className="w-full px-4 py-2 rounded-lg border"
-              />
-              <button
-                type="submit"
-                className="w-full bg-beige-dark hover:bg-beige py-2 rounded-lg font-semibold"
-              >
-                Wyślij
-              </button>
-            </form>
-          </section>
+           
         </main>
 
         {showScroll && (
