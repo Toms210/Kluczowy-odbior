@@ -9,7 +9,7 @@ import ScrollTop from "./components/ScrollTop";
 import GradientCTA from "./components/GradientCTA";
 import ParallaxSection from "./components/ParallaxSection";
 import Features from "./components/Features";
-import ContactForm from "./components/ContactForm";
+
 
 export default function Home() {
   useEffect(() => {
