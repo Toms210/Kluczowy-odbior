@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Analytics from "./components/Analytics";
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -173,6 +175,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             &copy; {new Date().getFullYear()} Kluczowy Odbiór. Wszystkie prawa zastrzeżone.
           </p>
         </footer>
+     <Analytics />
       </body>
     </html>
   );
